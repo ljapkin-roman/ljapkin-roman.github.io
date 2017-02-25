@@ -8,9 +8,6 @@
 </head>
 <body>
     <header data-link="aboutMe"> About me </header>
-    <header data-link="portfolio"> Portfolio </header>
-    <header data-link="followMe"> Follow me </header>
-    <header data-link="contact"> Contact</header>
     <div class="main">
         <nav>
             <div class="photo-face">
@@ -81,9 +78,9 @@
         $('header:nth-child(1)').fadeIn({}, 50);
 	    $('.name-item-nav').click(function() {
 		$('.content-page').hide();
-        $('header').hide();
 		$('.content-page[data-link=' + $(this).data('link') + ']').fadeIn({}, 100);
-		$('header[data-link=' + $(this).data('link') + ']').fadeIn({}, 100);
+        var korka = $(this).html();
+        $('header').html(korka);
 	    })
 
     </script>
