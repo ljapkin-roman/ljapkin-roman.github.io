@@ -3,15 +3,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
-	<link rel="stylesheet" href="main-portfolio.css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Sansita" rel="stylesheet"> 
+	<link rel="stylesheet" href="main-portfolio.css"> <link href="https://fonts.googleapis.com/css?family=Open+Sans|Sansita" rel="stylesheet"> 
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 </head>
 <body>
-    <header data-link="aboutMe"> About me </header>
-    <header data-link="portfolio"> Portfolio </header>
-    <header data-link="followMe"> Follow me </header>
-    <header data-link="contact"> Contact</header>
+	<header data-link="aboutMe">
+		<p>About me</p> 
+		<div class="alien">
+			<img src="img/alien.png" alt="">
+		</div>
+		<div class="earth">
+			<img src="img/earth.png" alt="">
+		</div>
+        <div class="talk-alien">
+            Бобро пожаловать!
+        </div>
+	</header>
     <div class="main">
         <nav>
             <div class="photo-face">
@@ -29,7 +36,6 @@
                 <i class="fa fa-suitcase" aria-hidden="true"></i>
                 </div>
                 <div class="name-item-nav" data-link="portfolio">
-			Portfolio
                 </div>
             </div>
             <div class="item-nav">
@@ -45,20 +51,21 @@
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 </div>
                 <div class="name-item-nav" data-link="contact">
-                    Contact
+			Contact
                 </div>
             </div>
         </nav>
 	<article>  
 		<div class="content-page" data-link="aboutMe">
             <h3 class="caption"> Ляпкин Рома </h3>
-            <p>Верстальщик, фронтовик, бекендщик и просто филантроп</p>
+            <p>Верстальщик</p>
             <div class="divider"></div>
-            <p> Верстаю,умею, знаю - HTML5, CSS3, JavaScript, Jquery. Но люблю я Python и JavaScript </p>
+            <p> HTML5, CSS3, JavaScript, Jquery </p>
 		</div>
 		<div class="content-page" data-link="portfolio">
                     <a href="https://ljapkin-roman.github.io/lookshop/lookshop.html">lookshop</a>
 			<b> Portfolio</b>
+                    <a href="https://ljapkin-roman.github.io/lookshop/lookshop.html">lookshop</a>
 		</div>
 		<div class="content-page" data-link="followMe">
             <p> Все лучше, от меня).  <a href="https://github.com/ljapkin-roman">Мой GitHub</a></p>
@@ -83,10 +90,16 @@
         $('header:nth-child(1)').fadeIn({}, 50);
 	    $('.name-item-nav').click(function() {
 		$('.content-page').hide();
-        $('header').hide();
 		$('.content-page[data-link=' + $(this).data('link') + ']').fadeIn({}, 100);
-		$('header[data-link=' + $(this).data('link') + ']').fadeIn({}, 100);
+        var korka = $(this).html();
+	$('header p').html( korka );
 	    })
+$('.talk-alien').hide();
+$('document').ready(
+        setTimeout(function() { 
+            $('.talk-alien').fadeIn(2000, function() { $(this).hide(1000) });
+          }, 6000)
+        )
 
     </script>
 </body>
