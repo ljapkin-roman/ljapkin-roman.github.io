@@ -9,9 +9,15 @@
 <body>
 	<header data-link="aboutMe">
 		<p>About me</p> 
-		<div class="planet">
+		<div class="alien">
+			<img src="img/alien.png" alt="">
+		</div>
+		<div class="earth">
 			<img src="img/earth.png" alt="">
 		</div>
+        <div class="talk-alien">
+            Бобро пожаловать!
+        </div>
 	</header>
     <div class="main">
         <nav>
@@ -86,8 +92,14 @@
 		$('.content-page').hide();
 		$('.content-page[data-link=' + $(this).data('link') + ']').fadeIn({}, 100);
         var korka = $(this).html();
-	$('header').html('<p>'+ korka +'</p>');
+	$('header p').html( korka );
 	    })
+$('.talk-alien').hide();
+$('document').ready(
+        setTimeout(function() { 
+            $('.talk-alien').fadeIn(2000, function() { $(this).hide(1000) });
+          }, 6000)
+        )
 
     </script>
 </body>
