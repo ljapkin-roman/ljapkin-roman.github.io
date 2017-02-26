@@ -11,7 +11,26 @@ header {
   padding-top: 50px;
   padding-bottom: 50px;
   font-weight: bold;
-  padding-left: 10%; }
+  background-image: url(img/ufo.png), url(img/star-sky.png);
+  background-repeat: no-repeat;
+  background-size: auto,  100% auto;
+  color: white; }
+
+@keyframes moty {
+  0% {
+    background-position: 20% 30%, 10% 10%;
+    background-size: 6% auto,100% auto; }
+  20% {
+    background-position: 40% 60%, 10% 10%;
+    background-size: 9% auto,100% auto; }
+  40% {
+    background-position: 80% 80%, 10% 10%;
+    background-size: 10% auto,100% auto; }
+  100% {
+    background-position: 85% 96%, 10% 10%;
+    background-size: 12% auto,100% auto; } }
+header {
+  animation: moty 3s infinite ease; }
 
 .main {
   display: flex;
