@@ -4,6 +4,7 @@ body {
 
 header {
   display: flex;
+  position: relative;
   font-size: 1.5em;
   color: #513636;
   width: 100%;
@@ -16,6 +17,28 @@ header {
   background-size: auto,  100% auto;
   color: white; }
 
+header p {
+  margin-left: 5%; }
+
+.planet {
+  position: absolute;
+  right: 3%;
+  top: 30%;
+  overflow: hidden;
+  z-index: 100;
+  background-image: url(img/alien.png);
+  background-repeat: no-repeat;
+  background-position: 20% 30%; }
+
+@keyframes appeat-alien {
+  0% {
+    background-position: 20% 30%; }
+  5% {
+    background-position: 25% 35%; }
+  10% {
+    background-position: 40% 50%; }
+  30% {
+    background-position: 60% 30%; } }
 @keyframes moty {
   0% {
     background-position: 20% 30%, 10% 10%;
