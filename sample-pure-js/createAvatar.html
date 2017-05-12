@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+   <img src="https://api.adorable.io/avatars/face/eyes6/nose2/mouth1/345782" alt="">
+   <form action="" class="createFace">
+       <label>Nose<input type="number" name="nose" min="1" max="8"> </label>
+       <label>Eyes<input type="number" name="eyes" min="1" max="9"> </label>
+       <label>mouth<input type="number" name="mouth" min="1" max="8"> </label>
+       <label>color<input type="color" name="color" value="#ff3333"> </label>
+   </form>
+
+   <script type="text/javascript">
+       function displayMatch() {
+           var avatarEyes = this.name+this.value;
+           var scrAvatar = img.attributes["src"].nodeValue;
+           var doItChange = new RegExp(this.name + '\\d', "ig");
+           var newValue= scrAvatar.replace(doItChange, avatarEyes);
+           console.log(this.value);
+           img.attributes["src"].nodeValue = newValue;
+       }
+function displayColor() {
+    var color = this.value;
+    color = color.substring(1,);
+    console.log(color);
+    var scrAvatar = img.attributes["src"].nodeValue;
+    var doItChange = new RegExp('.{6}$', "i");
+    var newValue = scrAvatar.replace(doItChange, color);
+    img.attributes['src'].nodeValue = newValue;
+
+}
+       let nose = document.querySelector("input[name='nose']");
+       let eyes = document.querySelector("input[name='eyes']");
+       let mouth = document.querySelector("input[name='mouth']");
+       let color = document.querySelector("input[name='color']");
+       let img = document.querySelector('img[src="https://api.adorable.io/avatars/face/eyes6/nose2/mouth1/345782"]');
+       eyes.addEventListener('change',displayMatch )
+       nose.addEventListener('change',displayMatch )
+       mouth.addEventListener('change',displayMatch )
+       color.addEventListener('change',displayColor )
+   </script>
+</body>
+</html>
