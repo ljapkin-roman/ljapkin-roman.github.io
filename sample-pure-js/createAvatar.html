@@ -3,33 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <style>
+        .mainBlock {
+            display: flex;
+        }
+        .createFace {
+            display: flex;
+            flex-direction: column;
+            margin-left: 5%;
+            width: 40%;
+            border: 1px solid blue;
+        } 
+        input {
+            margin-left: 3%;
+        }
+        label {
+            margin-bottom: 10px;
+        }
+        label p {
+            display: inline-block;
+            width: 15%;
+        }
+    </style>
 </head>
 <body>
+    <div class ="mainBlock">
    <img src="https://api.adorable.io/avatars/face/eyes6/nose2/mouth1/345782" alt="">
    <form action="" class="createFace">
-       <label>Nose<input type="number" name="nose" min="1" max="8" value="1"> </label>
-       <label>Eyes<input type="number" name="eyes" min="1" max="9" value="1"> </label>
-       <label>mouth<input type="number" name="mouth" min="1" max="8" value="1"> </label>
-       <label>color<input type="color" name="color" value="#ff3333"> </label>
+       <label><p>Nose</p><input type="number" name="nose" min="1" max="8" value="1"> </label>
+       <label><p>Eyes</p><input type="number" name="eyes" min="1" max="9" value="1"> </label>
+       <label><p>mouth</p><input type="number" name="mouth" min="1" max="8" value="1"> </label>
+       <label><p>color</p><input type="color" name="color" value="#ff3333"> </label>
    </form>
+   </div>
+   <p class="contentUrl"> Unity </p>
 
    <script type="text/javascript">
+       var contentUrl = document.querySelector(".contentUrl");
+       function kek (){
+           contentUrl.textContent = "kolun";
+
+       }
        function displayMatch() {
            var avatarEyes = this.name+this.value;
            var scrAvatar = img.attributes["src"].nodeValue;
            var doItChange = new RegExp(this.name + '\\d', "ig");
            var newValue= scrAvatar.replace(doItChange, avatarEyes);
-           console.log(this.value);
+           console.log(newValue);
            img.attributes["src"].nodeValue = newValue;
+           kek();
        }
 function displayColor() {
     var color = this.value;
     color = color.substring(1,);
-    console.log(color);
     var scrAvatar = img.attributes["src"].nodeValue;
     var doItChange = new RegExp('.{6}$', "i");
     var newValue = scrAvatar.replace(doItChange, color);
     img.attributes['src'].nodeValue = newValue;
+    console.log(newValue);
 
 }
        let nose = document.querySelector("input[name='nose']");
@@ -37,10 +68,10 @@ function displayColor() {
        let mouth = document.querySelector("input[name='mouth']");
        let color = document.querySelector("input[name='color']");
        let img = document.querySelector('img[src="https://api.adorable.io/avatars/face/eyes6/nose2/mouth1/345782"]');
-       eyes.addEventListener('change',displayMatch )
-       nose.addEventListener('change',displayMatch )
-       mouth.addEventListener('change',displayMatch )
-       color.addEventListener('change',displayColor )
+       eyes.addEventListener('change',displayMatch );
+       nose.addEventListener('change',displayMatch );
+       mouth.addEventListener('change',displayMatch );
+       color.addEventListener('change',displayColor );
    </script>
 </body>
 </html>
