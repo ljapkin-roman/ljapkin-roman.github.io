@@ -50,7 +50,7 @@
 </head>
 <body>
     <div class ="mainBlock">
-   <img src="https://api.adorable.io/avatars/face/eyes6/nose2/mouth1/345782" alt="">
+   <img src="https://api.adorable.io/avatars/face/eyes6/nose2/mouth1/345782" alt="" class="mainAvatar">
    <form action="" class="createFace">
        <label><p>Nose</p><input type="number" name="nose" min="1" max="8" value="1"> </label>
        <label><p>Eyes</p><input type="number" name="eyes" min="1" max="9" value="1"> </label>
@@ -77,6 +77,7 @@
    <img src="./imgForAvatar/mouth/mouth7.png" class="srcImg" hieght="150px" width="150px" alt="">
    <script type="text/javascript">
        var contentUrl = document.querySelector(".contentUrl");
+       let mainAvatar = document.querySelector(".mainAvatar");
        let arrayMouth =[...document.querySelectorAll(".mouth li")]
        let sourceImg = document.querySelector("img.srcImg");
        let textSrc = document.querySelector(".textSrc");
@@ -85,15 +86,38 @@
        var contentMenu = document.querySelectorAll(".mouth li"); 
        contentMenu = Array.from(contentMenu);
        for(var i = 0, len = contentMenu.length; i < len; i++){
-           contentMenu[i].addEventListener("mouseover", function(data){
+           contentMenu[i].addEventListener("mouseover",chooseFeature /*function(data){
                let dataFromList= data.target.firstChild.data;
                console.dir(data.target.firstChild);
                let iChangeValue = new RegExp('mouth\\d{1,}', "i");
                var text = sourceImg.attributes['src'].nodeValue;
                let output= text.replace(iChangeValue, dataFromList);
                sourceImg.attributes['src'].nodeValue = output;
-           })
+           }*/);
+           contentMenu[i].addEventListener("click", getFeature);
        }
+function chooseFeature(data){
+	//get value from list which is "overed"
+        let dataFromList= data.target.firstChild.data;
+	// we find out what a element we got
+	let featureFace = data.target.parentElement.classList.value;
+	// create regular expretion on base name element
+	let regularExp = new RegExp( featureFace + "\\d{1,}", "i" );
+        var text = sourceImg.attributes['src'].nodeValue;
+        let output= text.replace(regularExp, dataFromList);
+        sourceImg.attributes['src'].nodeValue = output;
+}
+function getFeature(data){
+	//get value from list which is "overed"
+        let dataFromList= data.target.firstChild.data;
+	// we find out what a element we got
+	let featureFace = data.target.parentElement.classList.value;
+	// create regular expretion on base name element
+	let regularExp = new RegExp( featureFace + "\\d{1,}", "i" );
+        var text = mainAvatar.attributes['src'].nodeValue;
+        let output= text.replace(regularExp, dataFromList);
+        mainAvatar.attributes['src'].nodeValue = output;
+}
        function displayMatch() {
            var spesial = this.value;
            var avatarEyes = this.name+spesial;
@@ -104,7 +128,7 @@
            img.attributes["src"].nodeValue = newValue;
            kek(newValue);
        }
-function displayColor() {
+/*function displayColor() {
     var color = this.value;
     color = color.substring(1,);
     var scrAvatar = img.attributes["src"].nodeValue;
@@ -113,7 +137,7 @@ function displayColor() {
     img.attributes['src'].nodeValue = newValue;
     console.log(newValue);
 
-}
+}*/
        let nose = document.querySelector("input[name='nose']");
        let eyes = document.querySelector("input[name='eyes']");
        let mouth = document.querySelector("input[name='mouth']");
@@ -122,7 +146,7 @@ function displayColor() {
        eyes.addEventListener('change',displayMatch );
        nose.addEventListener('change',displayMatch );
        mouth.addEventListener('change',displayMatch );
-       color.addEventListener('change',displayColor );
+       //color.addEventListener('change',displayColor );
        var colo = fetch("https://api.adorable.io/avatars/list", {mode: "cors"});
        const cityJobsData =   fetch('https://data.cityofnewyork.us/resource/swhp-yxa4.json');
    </script>
