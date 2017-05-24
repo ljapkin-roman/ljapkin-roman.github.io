@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .mainBlock {
+            display: flex;
+        }
+        .createFace {
+            display: flex;
+            flex-direction: column;
+            margin-left: 5%;
+            width: 40%;
+            border: 1px solid blue;
+        } 
+        input {
+            margin-left: 3%;
+        }
+        label {
+            margin-bottom: 10px;
+        }
+        label p {
+            display: inline-block;
+            width: 15%;
+        }
+        .dropdown-menu {
+            position: relative;
+            border: 1px solid red;
+        } 
+        .mouth {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border: 1px solid red;
+            top: 2%;
+            list-style-type: none;
+            
+
+        }
+        .dropdown-menu:hover .mouth {
+            display: block;
+        }
+        .mouth li:hover {
+            background-color: #beceda;
+        }
+    </style>
+</head>
+<body>
+    <div class ="mainBlock">
+   <img src="https://api.adorable.io/avatars/face/eyes6/nose2/mouth1/345782" alt="">
+   <form action="" class="createFace">
+       <label><p>Nose</p><input type="number" name="nose" min="1" max="8" value="1"> </label>
+       <label><p>Eyes</p><input type="number" name="eyes" min="1" max="9" value="1"> </label>
+       <label><p>mouth</p><input type="number" name="mouth" min="1" max="8" value="1"> </label>
+       <label><p>color</p><input type="color" name="color" value="#ff3333"> </label>
+    <div class="dropdown-menu">
+        hover me
+        <ul class="mouth">
+            <li>mouth1</li>
+            <li>mouth10</li>
+            <li>mouth11</li>
+            <li>mouth3</li>
+            <li>mouth5</li>
+            <li>mouth6</li>
+            <li>mouth7</li>
+            <li>mouth9</li>
+        </ul>
+        <div class="output">
+        </div>
+    </div>
+    <div class="textSrc"> </div>
+   </form>
+   </div>
+   <img src="./imgForAvatar/mouth/mouth7.png" class="srcImg" hieght="150px" width="150px" alt="">
+   <script type="text/javascript">
+       var contentUrl = document.querySelector(".contentUrl");
+       let arrayMouth =[...document.querySelectorAll(".mouth li")]
+       let sourceImg = document.querySelector("img.srcImg");
+       let textSrc = document.querySelector(".textSrc");
+       console.log(sourceImg.attributes['src'].nodeValue)
+       textSrc.textContent = sourceImg.attributes['src'].nodeValue;
+       var contentMenu = document.querySelectorAll(".mouth li"); 
+       contentMenu = Array.from(contentMenu);
+       for(var i = 0, len = contentMenu.length; i < len; i++){
+           contentMenu[i].addEventListener("mouseover", function(data){
+               let dataFromList= data.target.firstChild.data;
+               console.dir(data.target.firstChild);
+               let iChangeValue = new RegExp('mouth\\d{1,}', "i");
+               var text = sourceImg.attributes['src'].nodeValue;
+               let output= text.replace(iChangeValue, dataFromList);
+               sourceImg.attributes['src'].nodeValue = output;
+           })
+       }
+       function displayMatch() {
+           var spesial = this.value;
+           var avatarEyes = this.name+spesial;
+           var scrAvatar = img.attributes["src"].nodeValue;
+           var doItChange = new RegExp(this.name + '\\d', "ig");
+           var newValue= scrAvatar.replace(doItChange, avatarEyes);
+           console.log(newValue);
+           img.attributes["src"].nodeValue = newValue;
+           kek(newValue);
+       }
+function displayColor() {
+    var color = this.value;
+    color = color.substring(1,);
+    var scrAvatar = img.attributes["src"].nodeValue;
+    var doItChange = new RegExp('.{6}$', "i");
+    var newValue = scrAvatar.replace(doItChange, color);
+    img.attributes['src'].nodeValue = newValue;
+    console.log(newValue);
+
+}
+       let nose = document.querySelector("input[name='nose']");
+       let eyes = document.querySelector("input[name='eyes']");
+       let mouth = document.querySelector("input[name='mouth']");
+       let color = document.querySelector("input[name='color']");
+       let img = document.querySelector('img[src="https://api.adorable.io/avatars/face/eyes6/nose2/mouth1/345782"]');
+       eyes.addEventListener('change',displayMatch );
+       nose.addEventListener('change',displayMatch );
+       mouth.addEventListener('change',displayMatch );
+       color.addEventListener('change',displayColor );
+       var colo = fetch("https://api.adorable.io/avatars/list", {mode: "cors"});
+       const cityJobsData =   fetch('https://data.cityofnewyork.us/resource/swhp-yxa4.json');
+   </script>
+</body>
+</html>

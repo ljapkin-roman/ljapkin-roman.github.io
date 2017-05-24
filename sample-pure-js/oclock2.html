@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+        html {
+            background:url(https://source.unsplash.com/kBJEJqWNtNY/600x600);
+            background-size: cover;
+        }
+    .clock-face {
+        width: 200px;
+        height: 200px;
+        border:5px solid blue;
+        margin: auto;
+        border-radius: 50%;
+        position: relative;
+    }
+    .hand-second {
+        position: absolute;
+        width: 49%;
+        height: 3px;
+        background: white;
+        top: 50%;
+        transform-origin: 100%;
+    }
+    .hand-minute {
+        position: absolute;
+        width: 49%;
+        height: 3px;
+        background: blue;
+        top: 50%;
+        transform-origin: 100%;
+    }
+</style>
+<body>
+    <div class="clock-face">
+        <div class="hand-hour"></div>
+        <div class="hand-minute"></div>
+        <div class="hand-second"></div>
+    </div>
+    <script type="text/javascript">
+        function viewSecond() {
+            let handSeconds = document.querySelector(".hand-second");
+            let handMinutes = document.querySelector(".hand-minute");
+            let time = new Date();
+            let quantitySeconds = time.getSeconds()*6+90;
+            let quantityMinutes = time.getMinutes()*6+90;
+            handSeconds.style.transform =`rotate(${quantitySeconds}deg)`;
+            handMinutes.style.transform =`rotate(${quantityMinutes}deg)`;
+            console.log(time.getSeconds());
+
+        }
+     setInterval(viewSecond, 1000);
+    </script>
+</body>
+</html>
