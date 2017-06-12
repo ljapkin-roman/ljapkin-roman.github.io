@@ -24,11 +24,15 @@
             display: inline-block;
             width: 15%;
         }
-        .dropdown-menu {
+	.eyes, .nose, .mouth {
+		margin-bottom: 30px;
+		width: 30%;
+	}
+        .eyes {
             position: relative;
             border: 1px solid red;
         } 
-        .dropdown-menu ul {
+        .eyes ul {
             display: none;
             position: absolute;
             background-color: #f9f9f9;
@@ -40,10 +44,54 @@
             
 
         }
-        .dropdown-menu:hover ul {
+        .eyes:hover ul {
             display: block;
         }
-        .dropdown-menu ul li:hover {
+        .eyes ul li:hover {
+            background-color: #beceda;
+        }
+        .nose {
+            position: relative;
+            border: 1px solid red;
+        } 
+        .nose ul {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border: 1px solid red;
+            top: 2%;
+            list-style-type: none;
+            
+
+        }
+        .nose:hover ul {
+            display: block;
+        }
+        .nose ul li:hover {
+            background-color: #beceda;
+        }
+        .mouth {
+            position: relative;
+            border: 1px solid red;
+        } 
+        .mouth ul {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border: 1px solid red;
+            top: 2%;
+            list-style-type: none;
+            
+
+        }
+        .mouth:hover ul {
+            display: block;
+        }
+        .mouth ul li:hover {
             background-color: #beceda;
         }
         .aside-menu {
@@ -61,47 +109,50 @@
 </head>
 <body>
     <div class ="mainBlock">
-   <img src="https://api.adorable.io/avatars/face/eyes6/nose2/mouth1/345782" alt="" class="mainAvatar">
-   <div class="aside-menu">
-       <div class="row-choose">
-           <div class="cell-for-img"><img src="./imgForAvatar/eyes/eyes1.png" class="eyes" hieght="150px" width="150px" alt="">
-           </div>
-           <div class="dropdown-menu">
-               eyes
-               <ul>
-                   <li>eye1</li>
-                   <li>eye10</li>
-                   <li>eye2</li>
-                   <li>eye3</li>
-                   <li>eye4</li>
-                   <li>eye5</li>
-                   <li>eye6</li>
-                   <li>eye7</li>
-                   <li>eye9</li>
-               </ul>
-           </div> 
-
-       </div>
-       <div class="row-choose">
-           <div class="cell-for-img"><img src="./imgForAvatar/eyes/eyes1.png" class="eyes" hieght="150px" width="150px" alt="">
-           </div>
-           <div class="dropdown-menu">
-               nose
-               <ul>
-                   <li>nose</li>
-                   <li>nose</li>
-                   <li>nose</li>
-                   <li>nose</li>
-                   <li>nose</li>
-                   <li>nose</li>
-                   <li>nose</li>
-               </ul>
-       </div>
-       <div class="row-choose">
-           mouth
-   <img src="./imgForAvatar/mouth/mouth7.png" class="mouth" hieght="150px" width="150px" alt="">
-       </div>
-   </div>
+	   <img src="https://api.adorable.io/avatars/face/eyes6/nose2/mouth1/345782" alt="" class="mainAvatar">
+	   <div class="createFace">
+		   <div class="eyes">
+			   eyes
+			   <ul>
+				   <li>eyes1</li>
+				   <li>eyes10</li>
+				   <li>eyes2</li>
+				   <li>eyes3</li>
+				   <li>eyes4</li>
+				   <li>eyes5</li>
+				   <li>eyes6</li>
+				   <li>eyes7</li>
+				   <li>eyes9</li>
+			   </ul>
+			   <img src="imgForAvatar/eyes/eyes6.png" alt="" width="100px" height="100px">
+		   </div>
+		   <div class="nose">
+			   nose
+			   <ul>
+				   <li>nose2</li>
+				   <li>nose3</li>
+				   <li>nose4</li>
+				   <li>nose5</li>
+				   <li>nose6</li>
+				   <li>nose7</li>
+				   <li>nose8</li>
+				   <li>nose9</li>
+			   </ul>
+		   </div>
+		   <div class="mouth">
+			   mouth
+			   <ul>
+				   <li>mouth1</li>
+				   <li>mouth10</li>
+				   <li>mouth11</li>
+				   <li>mouth3</li>
+				   <li>mouth5</li>
+				   <li>mouth6</li>
+				   <li>mouth7</li>
+				   <li>mouth9</li>
+			   </ul>
+		   </div>
+	   </div>
    </div>
    <script type="text/javascript">
        var contentUrl = document.querySelector(".contentUrl");
@@ -115,14 +166,10 @@
 
 
        for(var i = 0, len = contentMenuMouth.length; i < len; i++){
-           contentMenuMouth[i].addEventListener("mouseover",chooseFeature /*function(data){
-               let dataFromList= data.target.firstChild.data;
-               console.dir(data.target.firstChild);
-               let iChangeValue = new RegExp('mouth\\d{1,}', "i");
-               var text = sourceImg.attributes['src'].nodeValue;
-               let output= text.replace(iChangeValue, dataFromList);
-               sourceImg.attributes['src'].nodeValue = output;
-           }*/);
+	       console.log(len);
+	       contentMenuMouth[i].addEventListener("mouseover",function() {
+		       console.log("jooooopa");
+	       } );
            contentMenuMouth[i].addEventListener("click", getFeature);
        }
   
@@ -153,8 +200,10 @@
 
 
 function chooseFeature(data){
+	console.log("mouse over away");
 	//get  a value from list  of li which is "overed"
         let dataFromList= data.target.firstChild.data;
+	console.log(dataFromList);
 	// we find out what a element we got
 	let featureFace = data.target.parentElement.classList.value;
     // get image which show this feature face
