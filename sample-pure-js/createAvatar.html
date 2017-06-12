@@ -7,13 +7,6 @@
         .mainBlock {
             display: flex;
         }
-        .createFace {
-            display: flex;
-            flex-direction: column;
-            margin-left: 5%;
-            width: 40%;
-            border: 1px solid blue;
-        } 
         input {
             margin-left: 3%;
         }
@@ -24,142 +17,50 @@
             display: inline-block;
             width: 15%;
         }
-	.eyes, .nose, .mouth {
-		margin-bottom: 30px;
-		width: 30%;
-	}
-        .eyes {
-            position: relative;
-            border: 1px solid red;
-        } 
-        .eyes ul {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border: 1px solid red;
-            top: 2%;
-            list-style-type: none;
-            
-
-        }
-        .eyes:hover ul {
-            display: block;
-        }
-        .eyes ul li:hover {
-            background-color: #beceda;
-        }
-        .nose {
-            position: relative;
-            border: 1px solid red;
-        } 
-        .nose ul {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border: 1px solid red;
-            top: 2%;
-            list-style-type: none;
-            
-
-        }
-        .nose:hover ul {
-            display: block;
-        }
-        .nose ul li:hover {
-            background-color: #beceda;
-        }
-        .mouth {
-            position: relative;
-            border: 1px solid red;
-        } 
-        .mouth ul {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border: 1px solid red;
-            top: 2%;
-            list-style-type: none;
-            
-
-        }
-        .mouth:hover ul {
-            display: block;
-        }
-        .mouth ul li:hover {
-            background-color: #beceda;
-        }
-        .aside-menu {
+        .dropdown {
             display: flex;
-            flex-direction: column;
-            width: 50%;
-            margin-left: 1%;
-            border: 1px solid blue;
+            position: relative;
+            margin-bottom: 50px;
         }
-        .row-choose {
-            display:flex;
-            align-items: center;
+        .dropdown-content {
+            position: absolute;
+            display: none;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .createFace {
+            display: flex;
+            margin-left: 0;
+        }
+        .menu-selection {
+            border: 1px solid blue;
+            flex-direction: row;
+        }
+        .list-img {
+            border: 1px solid red;
         }
     </style>
 </head>
 <body>
     <div class ="mainBlock">
 	   <img src="https://api.adorable.io/avatars/face/eyes6/nose2/mouth1/345782" alt="" class="mainAvatar">
-	   <div class="createFace">
-		   <div class="eyes">
-			   eyes
-			   <ul>
-				   <li>eyes1</li>
-				   <li>eyes10</li>
-				   <li>eyes2</li>
-				   <li>eyes3</li>
-				   <li>eyes4</li>
-				   <li>eyes5</li>
-				   <li>eyes6</li>
-				   <li>eyes7</li>
-				   <li>eyes9</li>
-			   </ul>
-			   <img src="imgForAvatar/eyes/eyes6.png" alt="" width="100px" height="100px">
-		   </div>
-		   <div class="nose">
-			   nose
-			   <ul>
-				   <li>nose2</li>
-				   <li>nose3</li>
-				   <li>nose4</li>
-				   <li>nose5</li>
-				   <li>nose6</li>
-				   <li>nose7</li>
-				   <li>nose8</li>
-				   <li>nose9</li>
-			   </ul>
-		   </div>
-		   <div class="mouth">
-			   mouth
-			   <ul>
-				   <li>mouth1</li>
-				   <li>mouth10</li>
-				   <li>mouth11</li>
-				   <li>mouth3</li>
-				   <li>mouth5</li>
-				   <li>mouth6</li>
-				   <li>mouth7</li>
-				   <li>mouth9</li>
-			   </ul>
-		   </div>
-	   </div>
+       <section class="createFace">
+           <div class="menu-selection">
+               menu-selection
+           </div>
+           <div class="list-img">
+               <img src="imgForAvatar/eyes/eyes6.png" alt="" width="100px" height="100px">
+           </div>
+           
+       </section>
    </div>
    <script type="text/javascript">
        var contentUrl = document.querySelector(".contentUrl");
        let mainAvatar = document.querySelector(".mainAvatar");
-       let contentMenuMouth =[...document.querySelectorAll(".mouth li")]
-       let contentMenuEyes =[...document.querySelectorAll(".eyes li")]
-       let contentMenuNose =[...document.querySelectorAll(".nose li")]
+       let contentMenuMouth =Array.from(document.querySelectorAll(".mouth li"));
+       let contentMenuEyes =Array.from(document.querySelectorAll(".eyes li"));
+       let contentMenuNose =Array.from(document.querySelectorAll(".nose li"));
        let sourceImg = document.querySelector("img.srcImg");
        let textSrc = document.querySelector(".textSrc");
 
