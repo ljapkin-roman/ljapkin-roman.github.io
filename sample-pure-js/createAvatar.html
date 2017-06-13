@@ -20,14 +20,18 @@
         .dropdown {
             display: flex;
             position: relative;
-            margin-bottom: 50px;
+            margin-bottom: 160px;
         }
         .dropdown-content {
             position: absolute;
+            right:30%;
             display: none;
         }
         .dropdown:hover .dropdown-content {
             display: block;
+        }
+        .dropdown-content ul li:hover {
+            background-color: #beceda;
         }
         .createFace {
             display: flex;
@@ -35,11 +39,16 @@
         }
         .menu-selection {
             border: 1px solid blue;
-            flex-direction: row;
+            width: 55%;
         }
         .list-img {
             border: 1px solid red;
+            width: 45%;
         }
+        .list-img img {
+            margin-bottom: 80px;
+        }
+        
     </style>
 </head>
 <body>
@@ -47,10 +56,56 @@
 	   <img src="https://api.adorable.io/avatars/face/eyes6/nose2/mouth1/345782" alt="" class="mainAvatar">
        <section class="createFace">
            <div class="menu-selection">
-               menu-selection
+               <section class="dropdown">
+                   <span> eyes </span>
+                   <div class="dropdown-content">
+                       <ul class="eyes">
+                           <li>eyes1</li>
+                           <li>eyes10</li>
+                           <li>eyes2</li>
+                           <li>eyes3</li>
+                           <li>eyes4</li>
+                           <li>eyes5</li>
+                           <li>eyes6</li>
+                           <li>eyes7</li>
+                           <li>eyes9</li>
+                       </ul>
+                   </div>
+               </section>
+               <section class="dropdown">
+                   <span> nose </span>
+                   <div class="dropdown-content">
+                       <ul class="nose">
+                           <li>nose2</li>
+                           <li>nose3</li>
+                           <li>nose4</li>
+                           <li>nose5</li>
+                           <li>nose6</li>
+                           <li>nose7</li>
+                           <li>nose8</li>
+                           <li>nose9</li>
+                       </ul>
+                   </div>
+               </section>
+               <section class="dropdown">
+                   <span> mouth </span>
+                   <div class="dropdown-content">
+                       <ul class="mouth">
+                           <li>mouth1</li>
+                           <li>mouth10</li>
+                           <li>mouth3</li>
+                           <li>mouth5</li>
+                           <li>mouth6</li>
+                           <li>mouth7</li>
+                           <li>mouth9</li>
+                       </ul>
+                   </div>
+               </section>
            </div>
            <div class="list-img">
-               <img src="imgForAvatar/eyes/eyes6.png" alt="" width="100px" height="100px">
+               <img src="imgForAvatar/eyes/eyes6.png" alt="" width="100px" height="100px" class="eyes">
+               <img src="imgForAvatar/nose/nose2.png" alt="" width="100px" height="100px" class="nose">
+               <img src="imgForAvatar/mouth/mouth1.png" alt="" width="100px" height="100px" class="mouth">
            </div>
            
        </section>
@@ -68,9 +123,7 @@
 
        for(var i = 0, len = contentMenuMouth.length; i < len; i++){
 	       console.log(len);
-	       contentMenuMouth[i].addEventListener("mouseover",function() {
-		       console.log("jooooopa");
-	       } );
+	       contentMenuMouth[i].addEventListener("mouseover",chooseFeature);
            contentMenuMouth[i].addEventListener("click", getFeature);
        }
   
@@ -101,15 +154,13 @@
 
 
 function chooseFeature(data){
-	console.log("mouse over away");
 	//get  a value from list  of li which is "overed"
         let dataFromList= data.target.firstChild.data;
-	console.log(dataFromList);
 	// we find out what a element we got
-	let featureFace = data.target.parentElement.classList.value;
+	let featureFace = data.target.parentElement.classList;
+    console.log("class + " + featureFace);
     // get image which show this feature face
     let urlImage = document.querySelector("img." + featureFace);
-    console.log(urlImage.attributes['src'].nodeValue)
 	// create regular expretion on base name element
 	let regularExp = new RegExp( featureFace + "\\d{1,}", "i" );
         var text = urlImage.attributes['src'].nodeValue;
@@ -118,7 +169,7 @@ function chooseFeature(data){
 }
 function getFeature(data){
         let dataFromList= data.target.firstChild.data;
-	    let featureFace = data.target.parentElement.classList.value;
+	    let featureFace = data.target.parentElement.classList;
         let urlImage = document.querySelector("img." + featureFace);
 	    let regularExp = new RegExp( featureFace + "\\d{1,}", "i" );
         let mainAvatar = document.querySelector('.mainAvatar');
