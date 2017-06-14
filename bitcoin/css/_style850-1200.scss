@@ -1,0 +1,29 @@
+@media screen and (max-width:1200px) and (min-width: 650px) {
+	.main-width-site {
+		width: 100%;
+	}
+	.main-section {
+		width: 94%;
+		margin: auto;
+	}
+	.features {
+	}
+    .dropdown-toggle {
+        display: none;
+    }
+    .button-submit-exchange {
+        margin-top: 20px;
+    }
+    .reserv__row-valuta {
+        margin-bottom: 5px;
+    }
+    .convertor__item input[type=submit] {
+        top: 0;
+    }
+    .main-section {
+        padding-top: 20px;    }
+
+
+
+
+}

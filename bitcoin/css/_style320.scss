@@ -1,0 +1,137 @@
+@media screen and (max-width: 650px) {
+.row-main-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-style: normal;
+  font-size: 30px; 
+  font-color: red;
+}
+.dropdown-toggle {
+	display: flex;
+	justify-content: center;
+}
+.row-main-menu__item {
+    display: flex;
+    justify-content: center;
+}
+.row-main-menu__item:nth-child(2n) {
+    background-color: #beceda;
+}
+.logo {
+    width: 50%;
+    margin-right: 10%;
+    margin-bottom: 20px;
+}
+.row-exchage-rates {
+	display: none;
+}
+.main-width-site {
+	display: flex;
+    justify-content: center;
+	flex-wrap: wrap;
+	width: 98%;
+    margin {
+        left: auto;
+        right: auto;
+        left: auto;
+        right: auto;
+        bottom: 20px;
+    }
+}
+.header__menu {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+    width: 100%;
+    background-color: #F0F8FF;
+    margin-bottom: 20px;
+}
+button {
+    position: relative;
+}
+.row-exchange-rates {
+	order:2;
+    display: none;
+}
+.means-communication {
+    order: 3;
+	flex-direction: row;
+    justify-content: space-around;
+	flex:1 0 40%;
+}
+.switcher-language {
+    display: flex;
+    flex-direction: column;
+	width: 100%;
+    order: 4;
+    justify-content: space-around;
+	flex:1 0 60%;
+}
+.switcher-language__flag {
+    display: flex;
+    justify-content: center;
+}
+.switcher-language__flag a {
+     margin-right: 10px;
+     margin-left: 10px;
+}
+.switcher-language__text {
+}
+.invisable {
+    display: none;
+}
+.hamburger-menu span {
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 100%;
+    background:#d3531a;
+    border-radius: 9px;
+    opacity: 1;
+}
+.switcher-language__text {
+    width: 100%;
+    text-align: center;
+}
+.hamburger-menu {
+    position: relative;
+    width: 60px;
+    height: 45px;
+    margin-bottom: 20px;
+}
+.main-section {
+    height: auto;
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+}
+.features {
+    order: 2;
+    flex: 1 0 100%;
+    width: 90%;
+}
+.reserv {
+	width: 90%;
+}
+.form-exchange {
+    order:1;
+    flex: 1 0 98%;
+    width:96%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.reserv {
+    display: flex;
+    order: 3;
+    flex: 1 0 100%;
+}
+.convertor {
+    width: 96%;
+    margin: auto;
+}
+
+}

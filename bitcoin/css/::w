@@ -1,0 +1,9 @@
+@media screen and (max-width: 1200px) {
+.row-main-menu {
+  display: flex;
+  justify-content: space-between;
+  font-style: italic;
+  font-size: 30px; 
+  font-color: red;
+}
+}
