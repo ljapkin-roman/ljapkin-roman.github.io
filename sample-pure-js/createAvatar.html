@@ -19,25 +19,39 @@
         }
         .dropdown {
             display: flex;
+            border: 1px dotted red;
+            justify-content: center;
             position: relative;
             margin-bottom: 160px;
         }
         .dropdown-content {
             position: absolute;
-            right:30%;
             display: none;
+            width: 100%;
+            border: 1px solid blue;
+            right: 0.5%;
         }
         .dropdown:hover .dropdown-content {
-            display: block;
+            display: flex;
+            justify-content: center;
         }
         .dropdown-content ul li:hover {
             background-color: #beceda;
+        }
+        ul>li {
+            display: inline-block;
+            width: 100%;
+            margin: auto;
+            border: 1px solid yellow;
         }
         .createFace {
             display: flex;
             margin-left: 0;
         }
         .menu-selection {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             border: 1px solid blue;
             width: 55%;
         }
@@ -109,6 +123,7 @@
            </div>
            
        </section>
+       <span id="source"> </span>
    </div>
    <script type="text/javascript">
        var contentUrl = document.querySelector(".contentUrl");
@@ -117,7 +132,9 @@
        let contentMenuEyes =Array.from(document.querySelectorAll(".eyes li"));
        let contentMenuNose =Array.from(document.querySelectorAll(".nose li"));
        let sourceImg = document.querySelector("img.srcImg");
-       let textSrc = document.querySelector(".textSrc");
+       let source = document.querySelector("#source");
+       source.innerHTML = mainAvatar.attributes['src'].nodeValue
+       
 
 
 
@@ -175,6 +192,7 @@ function getFeature(data){
         let mainAvatar = document.querySelector('.mainAvatar');
         let textAvatar = mainAvatar.attributes['src'].nodeValue;
         mainAvatar.attributes['src'].nodeValue = textAvatar.replace(regularExp,dataFromList);
+       source.innerHTML = mainAvatar.attributes['src'].nodeValue
         console.log(mainAvatar.attributes['src'].nodeValue);
 }
    </script>
