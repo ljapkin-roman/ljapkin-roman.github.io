@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=divace-width,initial-scale=1">
     <title></title>
     <style>
         .mainBlock {
@@ -17,23 +18,41 @@
             display: inline-block;
             width: 15%;
         }
-        .dropdown {
+        .block-menu{
             display: flex;
-            border: 1px dotted red;
-            justify-content: center;
+            width: 50%;
+        }
+        ul {
+            padding-left: 0;
+        }
+        .dropdown {
+            text-align: center;
+            margin-top: auto;
+            margin-bottom: auto;
             position: relative;
-            margin-bottom: 160px;
+            height: 20px;
+            width: 100%;
+            justify-content: center;
         }
         .dropdown-content {
             position: absolute;
             display: none;
             width: 100%;
-            border: 1px solid blue;
             right: 0.5%;
+            background-color: #fff;
+        }
+        .dropdown-content li {
+            background-color:rgba(245,245,245,1);
+            z-index: 1000;
         }
         .dropdown:hover .dropdown-content {
             display: flex;
             justify-content: center;
+            align-items: center;
+        }
+
+        .dropdown-content ul {
+            width: 100%;
         }
         .dropdown-content ul li:hover {
             background-color: #beceda;
@@ -42,21 +61,31 @@
             display: inline-block;
             width: 100%;
             margin: auto;
-            border: 1px solid yellow;
         }
         .createFace {
+            width: 60%;
             display: flex;
+            flex-direction: column;
             margin-left: 0;
         }
         .menu-selection {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border: 1px solid blue;
             width: 55%;
         }
+        .choose-face-feature {
+            display: flex;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .section-for-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 49%;
+        }
         .list-img {
-            border: 1px solid red;
             width: 45%;
         }
         .list-img img {
@@ -65,31 +94,50 @@
         }
         
     </style>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                      <li><a href="#">HTML</a></li>
+                          <li><a href="#">CSS</a></li>
+                              <li><a href="#">JavaScript</a></li>
+                                </ul>
+                            </div>
     <div class ="mainBlock">
 	   <img src="https://api.adorable.io/avatars/face/eyes6/nose2/mouth1/345782" alt="" class="mainAvatar" width="300px" height="300px">
        <section class="createFace">
-           <div class="menu-selection">
-               <section class="dropdown">
-                   <span> eyes </span>
-                   <div class="dropdown-content">
-                       <ul class="eyes">
-                           <li>eyes1</li>
-                           <li>eyes10</li>
-                           <li>eyes2</li>
-                           <li>eyes3</li>
-                           <li>eyes4</li>
-                           <li>eyes5</li>
-                           <li>eyes6</li>
-                           <li>eyes7</li>
-                           <li>eyes9</li>
-                       </ul>
-                   </div>
-               </section>
-               <section class="dropdown">
-                   <span> nose </span>
-                   <div class="dropdown-content">
+           <div class="choose-face-feature">
+               <div class="block-menu">
+                   <section class="dropdown">
+                       <span > eyes </span>
+                       <div class="dropdown-content">
+                           <ul class="eyes">
+                               <li>eyes1</li>
+                               <li>eyes10</li>
+                               <li>eyes2</li>
+                               <li>eyes3</li>
+                               <li>eyes4</li>
+                               <li>eyes5</li>
+                               <li>eyes6</li>
+                               <li>eyes7</li>
+                               <li>eyes9</li>
+                           </ul>
+                       </div>
+                   </section>
+               </div>
+               <section class="section-for-image">
+                      <img src="imgForAvatar/eyes/eyes6.png" alt="" width="100px" height="100px" class="eyes">
+                </section>
+           </div>
+           <div class="choose-face-feature">
+               <div class="block-menu">
+                   <section class="dropdown">
+                       <span> nose </span>
+                       <div class="dropdown-content">
                        <ul class="nose">
                            <li>nose2</li>
                            <li>nose3</li>
@@ -100,29 +148,15 @@
                            <li>nose8</li>
                            <li>nose9</li>
                        </ul>
-                   </div>
-               </section>
-               <section class="dropdown">
-                   <span> mouth </span>
-                   <div class="dropdown-content">
-                       <ul class="mouth">
-                           <li>mouth1</li>
-                           <li>mouth10</li>
-                           <li>mouth3</li>
-                           <li>mouth5</li>
-                           <li>mouth6</li>
-                           <li>mouth7</li>
-                           <li>mouth9</li>
-                       </ul>
-                   </div>
-               </section>
-           </div>
-           <div class="list-img">
-               <img src="imgForAvatar/eyes/eyes6.png" alt="" width="100px" height="100px" class="eyes">
+                       </div>
+                   </section>
+               </div>
+               <section class="section-for-image">
                <img src="imgForAvatar/nose/nose2.png" alt="" width="100px" height="100px" class="nose">
-               <img src="imgForAvatar/mouth/mouth1.png" alt="" width="100px" height="100px" class="mouth">
+                </section>
            </div>
-           
+           <div class="choose-face-feature">
+           </div>
        </section>
    </div>
        <span id="source"> </span>
