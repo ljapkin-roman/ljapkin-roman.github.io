@@ -28,17 +28,73 @@
         </div>
         <div class="col-sm-7 bord">
             <div class="container-fluid">
-                  <div class="row">
-                      <div class="col-sm-6 cort">
+                <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6 cort">
     <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Eyes
                 <span class="caret"></span></button>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu eyes">
+                          <li>eyes1</li>
+                          <li>eyes10</li>
+                          <li>eyes2</li>
+                          <li>eyes3</li>
+                          <li>eyes4</li>
+                          <li>eyes5</li>
+                          <li>eyes6</li>
+                          <li>eyes7</li>
+                          <li>eyes9</li>
               </ul>
                             </div>
                       </div>
                       <div class="col-sm-6 cort">
-                          small small
+                          <img src="imgForAvatar/eyes/eyes6.png" alt="" width="100px" height="100px" class="eyes">
+                      </div>
+                  </div>
+              </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6 cort">
+    <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Nose
+                <span class="caret"></span></button>
+              <ul class="dropdown-menu nose">
+                          <li>nose2</li>
+                          <li>nose3</li>
+                          <li>nose4</li>
+                          <li>nose5</li>
+                          <li>nose6</li>
+                          <li>nose7</li>
+                          <li>nose8</li>
+                          <li>nose9</li>
+              </ul>
+                            </div>
+                      </div>
+                      <div class="col-sm-6 cort">
+                          <img src="imgForAvatar/nose/nose2.png" alt="" width="100px" height="100px" class="nose">
+                      </div>
+                  </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6 cort">
+    <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Mouth
+                <span class="caret"></span></button>
+              <ul class="dropdown-menu mouth">
+                          <li>mouth1</li>
+                          <li>mouth3</li>
+                          <li>mouth10</li>
+                          <li>mouth11</li>
+                          <li>mouth5</li>
+                          <li>mouth6</li>
+                          <li>mouth7</li>
+                          <li>mouth9</li>
+              </ul>
+                            </div>
+                      </div>
+                      <div class="col-sm-6 cort">
+                          <img src="imgForAvatar/mouth/mouth1.png" alt="" width="100px" height="100px" class="mouth">
                       </div>
                   </div>
             </div>
@@ -46,48 +102,50 @@
    </div>
    </div>
 </div>
-   <script type="text/javascript">
-       var contentUrl = document.querySelector(".contentUrl");
-       let mainAvatar = document.querySelector(".mainAvatar");
-       let contentMenuMouth =Array.from(document.querySelectorAll(".mouth li"));
-       let contentMenuEyes =Array.from(document.querySelectorAll(".eyes li"));
-       let contentMenuNose =Array.from(document.querySelectorAll(".nose li"));
-       let sourceImg = document.querySelector("img.srcImg");
-       let source = document.querySelector("#source");
-       source.innerHTML = mainAvatar.attributes['src'].nodeValue
-       
+<script type="text/javascript">
+    var contentUrl = document.querySelector(".contentUrl");
+    let mainAvatar = document.querySelector(".mainAvatar");
+    let contentMenuMouth =Array.from(document.querySelectorAll(".mouth li"));
+    let contentMenuEyes =Array.from(document.querySelectorAll(".eyes li"));
+    let contentMenuNose =Array.from(document.querySelectorAll(".nose li"));
+    let sourceImg = document.querySelector("img.srcImg");
+    let source = document.querySelector("#source");
+    //source.innerHTML = mainAvatar.attributes['src'].nodeValue;
+
+    function hover() {
+        console.log("hover hover");
+    }
+
+    function filterKeyWord(data){
+        for(var i =0; i<data.length; i++)  {
+            if(data[i] == "eyes" || data[i] == "nose" || data[i] == "mouth") {
+                return data[i];
+            }
+        }
+    }
 
 
+    for(var i = 0, len = contentMenuMouth.length; i < len; i++){
+        contentMenuMouth[i].addEventListener("mouseover",chooseFeature);
+        contentMenuMouth[i].addEventListener("click", getFeature);
+    }
 
-       for(var i = 0, len = contentMenuMouth.length; i < len; i++){
-	       console.log(len);
-	       contentMenuMouth[i].addEventListener("mouseover",chooseFeature);
-           contentMenuMouth[i].addEventListener("click", getFeature);
-       }
-  
-       for(var i = 0, len = contentMenuEyes.length; i < len; i++){
-           contentMenuEyes[i].addEventListener("mouseover",chooseFeature /*function(data){
-               let dataFromList= data.target.firstChild.data;
-               console.dir(data.target.firstChild);
-               let iChangeValue = new RegExp('mouth\\d{1,}', "i");
-               var text = sourceImg.attributes['src'].nodeValue;
-               let output= text.replace(iChangeValue, dataFromList);
-               sourceImg.attributes['src'].nodeValue = output;
-           }*/);
-           contentMenuEyes[i].addEventListener("click", getFeature);
-       }
+for(var i = 0, len = contentMenuEyes.length; i < len; i++){
+    contentMenuEyes[i].addEventListener("mouseover",chooseFeature /*function(data){
+                                                                    let dataFromList= data.target.firstChild.data;
+                                                                    console.dir(data.target.firstChild);
+                                                                    let iChangeValue = new RegExp('mouth\\d{1,}', "i");
+                                                                    var text = sourceImg.attributes['src'].nodeValue;
+                                                                    let output= text.replace(iChangeValue, dataFromList);
+                                                                    sourceImg.attributes['src'].nodeValue = output;
+                                                                    }*/);
+        contentMenuEyes[i].addEventListener("click", getFeature);
+}
 
-       for(var i = 0, len = contentMenuNose.length; i < len; i++){
-           contentMenuNose[i].addEventListener("mouseover",chooseFeature /*function(data){
-               let dataFromList= data.target.firstChild.data;
-               console.dir(data.target.firstChild);
-               let iChangeValue = new RegExp('mouth\\d{1,}', "i");
-               var text = sourceImg.attributes['src'].nodeValue;
-               let output= text.replace(iChangeValue, dataFromList);
-               sourceImg.attributes['src'].nodeValue = output;
-           }*/);
-           contentMenuNose[i].addEventListener("click", getFeature);
-       }
+for(var i = 0, len = contentMenuNose.length; i < len; i++){
+    contentMenuNose[i].addEventListener("mouseover",chooseFeature );
+        contentMenuNose[i].addEventListener("click", getFeature);
+}
 
 
 
@@ -96,7 +154,9 @@ function chooseFeature(data){
 	//get  a value from list  of li which is "overed"
         let dataFromList= data.target.firstChild.data;
 	// we find out what a element we got
-	let featureFace = data.target.parentElement.classList;
+	var featureFace = data.target.parentElement.classList;
+    featureFace = filterKeyWord(featureFace);
+    console.log("featureFace " + featureFace)
     console.log("class + " + featureFace);
     // get image which show this feature face
     let urlImage = document.querySelector("img." + featureFace);
