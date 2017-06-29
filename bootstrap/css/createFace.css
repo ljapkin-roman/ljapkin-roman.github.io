@@ -1,0 +1,23 @@
+.mainBlock {
+    border: 1px solid red;
+}
+.menu-choose {
+}
+.bord {
+    border: 1px solid blue;
+}
+.deletePadding {
+    padding-left: 0;
+}
+.cort {
+    margin-top: 20px;
+}
+.dropdown-menu {
+    text-align: center;
+}
+.dropdown-menu li:hover {
+    background-color:   #F0F8FF;
+}
+.row {
+    margin-bottom: 10px;
+}
